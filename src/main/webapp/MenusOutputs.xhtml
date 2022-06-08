@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+	
+	<h:head>
+		<title>MenusOutputs</title>
+		<link href="Financeiro/src/main/resources/PageDirection.css" rel="stylesheet"/>
+	</h:head>
+	<h:body>
+	
+		<!--ONE MENU -->
+		<h:form>
+			<h:outputLabel value="Time de futebol favorito: " for="timeFutebol" />
+			<h:selectOneMenu value="#{cadastroTorcedorBean.timeFavorito}"
+				id="timeFutebol">
+				<f:selectItem itemValue="Corinthians" />
+				<f:selectItem itemValue="Flamengo" />
+				<f:selectItem itemValue="Palmeiras" />
+				<f:selectItem itemValue="Santos" />
+				<f:selectItem itemValue="São Paulo" />
+				<f:selectItem itemValue="Vasco" />
+				<f:selectItem itemValue="Outro" />
+			</h:selectOneMenu>
+			
+			<h:outputText value="#{cadastroTorcedorBean.timeFavorito}"/>
+			
+		</h:form>
+
+		<!--MANY MENUS-->
+		<h:form>
+			<h:outputLabel value="Times de futebol favoritos: " for="timeFutebol" />
+			<h:selectManyMenu value="#{cadastroTorcedorBean.timesFavoritos}"
+					id="timeFutebol">
+				<f:selectItem itemValue="Corinthians" />
+				<f:selectItem itemValue="Flamengo" />
+				<f:selectItem itemValue="Palmeiras" />
+				<f:selectItem itemValue="Santos" />
+				<f:selectItem itemValue="São Paulo" />
+				<f:selectItem itemValue="Vasco" />
+				<f:selectItem itemValue="Outro" />
+			</h:selectManyMenu>
+		</h:form>
+		
+		
+		
+		<!--SELECT ONE LIST BOX-->
+		<h:form>
+			<h:outputLabel value="Time de futebol favorito: " for="timeFutebol" />
+				<h:selectOneListbox value="#{cadastroTorcedorBean.timeFavorito}"
+				id="timeFutebol" size="4">
+					<f:selectItem itemValue="Corinthians" />
+					<f:selectItem itemValue="Flamengo" />
+					<f:selectItem itemValue="Palmeiras" />
+					<f:selectItem itemValue="Santos" />
+					<f:selectItem itemValue="São Paulo" />
+					<f:selectItem itemValue="Vasco" />
+					<f:selectItem itemValue="Outro" />
+				</h:selectOneListbox>	
+		</h:form>
+		
+		<!--SELECT MANY LIST BOX-->
+		<h:form>
+			<h:outputLabel value="Times de futebol favoritos: " for="timeFutebol" />
+			<h:selectManyListbox value="#{cadastroTorcedorBean.timesFavoritos}"
+			id="timeFutebol" size="4">
+				<f:selectItem itemValue="Corinthians" />
+				<f:selectItem itemValue="Flamengo" />
+				<f:selectItem itemValue="Palmeiras" />
+				<f:selectItem itemValue="Santos" />
+				<f:selectItem itemValue="São Paulo" />
+				<f:selectItem itemValue="Vasco" />
+				<f:selectItem itemValue="Outro" />
+			</h:selectManyListbox>
+		</h:form>
+		
+		<!--SELECT ONE RADIO-->
+		<h:form>
+			<h:selectOneRadio id="sexo" layout="pageDirection">
+				<f:selectItem id="M" itemValue="M" itemLabel="Masculino" />
+				<f:selectItem id="F" itemValue="F" itemLabel="Feminino" />
+			</h:selectOneRadio>
+		</h:form>
+		
+		<!--SELECT BOOLEAN CHECKBOX-->
+		<h:form>
+			<h:selectBooleanCheckbox id="aceite"
+			value="#{cadastroUsuarioBean.termoAceito}"/>
+			<h:outputLabel value="Li e aceito os termos e condições" for="aceite"/>
+		</h:form>
+		
+		<!-- SELECT MANY CHECKBOX -->
+		<h:form>
+			<h:selectManyCheckbox id="assuntos" layout= "pageDirection"
+					value="#{cadastroUsuarioBean.assuntosInteresse}">
+				<f:selectItem itemValue="1" itemLabel="Java" />
+				<f:selectItem itemValue="3" itemLabel="Python" />
+				<f:selectItem itemValue="4" itemLabel="Ruby" />
+				<f:selectItem itemValue="4" itemLabel="PHP" />
+				<f:selectItem itemValue="5" itemLabel="Métodos ágeis" />
+			</h:selectManyCheckbox>
+		</h:form>
+		
+		<h:form>
+		<h:selectOneListbox size="5" value="#{minhaCidadeBean.cidadeNatal}">
+			<f:selectItems value="#{minhaCidadeBean.todasCidades}" />
+		</h:selectOneListbox>
+		</h:form>
+		
+		<h:form>
+		<h:panelGrid columns="1">
+			
+			<f:facet name="header">
+				<h:outputText value="Dados para cadastro" />
+			</f:facet>
+			
+			<h:panelGroup>
+				<h:outputText value="Nome:" />
+				<h:inputText value="#{cadastroBean.nome}" size="20" />
+			</h:panelGroup>
+			
+			<h:panelGroup>
+				<h:outputText value="E-mail:" />
+				<h:panelGroup>
+					<h:inputText size="40" />
+					<h:commandButton value="Validar" />
+				</h:panelGroup>
+			</h:panelGroup>
+			
+			<h:panelGroup>
+				<h:outputText value="Senha:" />
+				<h:inputSecret size="20" />
+			</h:panelGroup>
+			
+			<h:outputText />
+			<h:commandButton value="Cadastrar" action="#{cadastroBean.cadastrar}" />
+			
+			
+			<h:messages showDetail="true" showSummary="true"
+				errorStyle="color: red" infoStyle="color: green"
+				warnStyle="color: orange" fatalStyle="color: gray" />
+			
+		</h:panelGrid>
+			
+		</h:form>
+		
+		
+	</h:body>
+	
+</html>
