@@ -63,9 +63,8 @@
 						
 						<p:commandButton icon="ui-icon-trash" title="Excluir" process="@this"
 								update="@form" action="#{consultaLancamentosBean.excluir}">
-								<f:param name="lacamento" value="#{consultaLancamentosBean.lancamentoSelecionado}" />
-<!-- 							<f:setPropertyActionListener value="#{lancamento}"  -->
-<!-- 								target="#{consultaLancamentosBean.lancamentoSelecionado}"/> -->
+							<f:setPropertyActionListener value="#{lancamento}" 
+								target="#{consultaLancamentosBean.lancamentoSelecionado}"/>
 						</p:commandButton>
 					</p:column>
 					
